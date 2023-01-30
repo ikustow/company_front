@@ -113,23 +113,35 @@ export default {
 .users-table {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
 table {
-  border-collapse: collapse;
-  width: 30%;
-  margin: 10px;
+  width: 40%;
+  padding: 24px;
 }
 
 th, td {
-  padding: 8px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #333;
+  padding: 2px;
 }
 
-th {
-  background-color: #ddd;
+td {
+  background-color: #f2f2f2;
+  font-weight: normal;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
+
+
+
+th {
+  background-color: #a5cee7;
+  font-weight: bold;
+}
+
+
 </style>

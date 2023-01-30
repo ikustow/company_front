@@ -7,6 +7,7 @@ import {createRouter, createWebHistory} from "vue-router";
 import UserBoard from "@/components/UserBoard.vue";
 
 
+
 const routes = [
     {
         path: "/",
