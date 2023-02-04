@@ -1,23 +1,34 @@
 <template>
-  <div class="profile">
-    <UserBoard/>
-    <BarChart/>
+  <div class="container">
+    <header class="jumbotron">
+      <h3>
+        <strong>{{currentUser.email}}</strong> Profile
+      </h3>
+    </header>
+    <p>
+      <strong>Id:</strong>
+      {{currentUser.id}}
+    </p>
+    <p>
+      <strong>Email:</strong>
+      {{currentUser.email}}
+    </p>
   </div>
 </template>
 
 <script>
-import UserBoard from "@/components/UserBoard.vue";
-import BarChart from '@/components/BarChart.vue'
-
 export default {
-  name: "Profile",
-  components:{
-    UserBoard,
-    BarChart
+  name: 'Profile',
+  computed: {
+    currentUser() {
+      return this.$store.state.auth.user[0];
+    }
   },
+  mounted() {
+    if (!this.currentUser) {
+      const self = this;
+      self.$router.push('/login');
+    }
+  }
 };
 </script>
-
-<style>
-
-</style>

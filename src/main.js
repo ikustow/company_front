@@ -1,43 +1,15 @@
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from "vue";
+import App from "./App.vue";
+import router from "./router";
 import store from "./store";
-import Login from "@/components/Login.vue";
-import Profile from "@/components/Profile.vue";
-import {createRouter, createWebHistory} from "vue-router";
-import UserBoard from "@/components/UserBoard.vue";
+import "bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { FontAwesomeIcon } from './plugins/font-awesome'
 
-
-
-const routes = [
-    {
-        path: "/",
-        component: Login,
-    },
-    {
-        path: "/login",
-        component: Login,
-    },
-    {
-        path: "/profile",
-        name: 'profile',
-        component: Profile,
-    },
-    {
-        path: "/userboard",
-        name: 'userboard',
-        component: UserBoard,
-    },
-];
-
-const router = createRouter({
-    history: createWebHistory(),
-    routes,
-});
-
-
-
-let app = createApp(App);
-app.use(router);
-app.mount("#app");
+createApp(App)
+    .use(router)
+    .use(store)
+    .component("font-awesome-icon", FontAwesomeIcon)
+    .mount("#app");
 
 
