@@ -1,18 +1,9 @@
 <template>
-  <div class="container">
-    <header class="jumbotron">
-      <h3>
-        <strong>{{currentUser.email}}</strong> Profile
-      </h3>
-    </header>
-    <p>
-      <strong>Id:</strong>
-      {{currentUser.id}}
-    </p>
-    <p>
-      <strong>Email:</strong>
-      {{currentUser.email}}
-    </p>
+  <div class="profile-container">
+    <div class="profile-header">
+      <h2 class="profile-name">{{ 'Welcome ' + currentUser.details.name + " " +  currentUser.details.surname}}</h2>
+    </div>
+    <p class="profile-bio">{{}}</p>
   </div>
 </template>
 
@@ -21,7 +12,7 @@ export default {
   name: 'Profile',
   computed: {
     currentUser() {
-      return this.$store.state.auth.user[0];
+      return this.$store.state.auth.user;
     }
   },
   mounted() {
@@ -32,3 +23,29 @@ export default {
   }
 };
 </script>
+<style>
+.profile-container {
+  background-color: #f7f9fc;
+  width: 40%;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.profile-name {
+  margin-left: 1rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.profile-bio {
+  font-size: 0.875rem;
+  color: #777;
+}
+</style>
